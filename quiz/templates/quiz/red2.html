@@ -1,6 +1,5 @@
 
-<!doctype html>
-{% load staticfiles %}
+{% extends 'base.html' %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -50,6 +49,7 @@
   <body>
 
 <main>
+  {% block content %}
   <br>
   <div class="container">
     <div class="row">
@@ -109,23 +109,9 @@
         </a>
       </div>
     </div>
-    <div class="row">
-      {% for keys in antworten %}
-      <div class="col-md-12 text-center">
-        <a class="btn" href="{% url 'red3' %}">
-          <div class="bg-light text-dark overflow-hidden">
-            <div class="my-1 py-1">
-              <h3 class="text-dark">
-                  {{ keys }}
-              </h3>
-            </div>
-          </div>
-        </a>
-      </div>
-      {% endfor %}
-    </div>
     <br>
   </div>
+  {% endblock %}
 </main>
 
 

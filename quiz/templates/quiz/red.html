@@ -1,6 +1,5 @@
 
-<!doctype html>
-{% load staticfiles %}
+{% extends 'base.html' %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -50,6 +49,7 @@
   <body>
 
 <main>
+  {% block content %}
   <br>
   <div class="container">
     <div class="row">
@@ -111,6 +111,7 @@
     </div>
     <br>
   </div>
+  {% endblock %}
 </main>
 
 

@@ -55,7 +55,7 @@ ROOT_URLCONF = 'azubi2022.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['quiz/templates/quiz'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

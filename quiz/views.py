@@ -53,11 +53,11 @@ def summary(request, liste, antwort):
 
     for i in range(4):
         if antworten[i] == antworten_richtig[i]:
-            summary[antworten[i]] = "Richtig"
+            summary[i] = "Richtig"
         else:
-            summary[antworten[i]] = "Falsch"
+            summary[i] = "Falsch"
 
-    return render(request, 'quiz/summary.html', {'summary':summary})
+    return render(request, 'quiz/summary.html', {'antworten':antworten, 'summary':summary})
 
 def schwarzfehler1(request):
     return render(request, 'quiz/schwarzfehler1.html')
