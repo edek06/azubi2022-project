@@ -53,9 +53,9 @@ def summary(request, liste, antwort):
 
     for i in range(4):
         if antworten[i] == antworten_richtig[i]:
-            summary[i] = "Richtig"
+            summary[antworten[i]] = "Richtig"
         else:
-            summary[i] = "Falsch"
+            summary[antworten[i]] = "Falsch"
 
     return render(request, 'quiz/summary.html', {'antworten':antworten, 'summary':summary})
 
