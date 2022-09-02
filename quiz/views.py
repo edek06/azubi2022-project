@@ -59,6 +59,61 @@ def summary(request, liste, antwort):
 
     return render(request, 'quiz/summary.html', {'antworten':antworten, 'summary':summary})
 
+def green(request):
+    pos = Quiz.objects.get(pk=5)
+    return render(request, 'quiz/green.html', {'pos':pos})
+
+def green2(request, antwort):
+    antworten = []
+    antworten.append(antwort)
+    pos = Quiz.objects.get(pk=6)
+    return render(request, 'quiz/green2.html', {'pos':pos, 'antworten':antworten})
+
+def green3(request, liste, antwort):
+    antworten = []
+    temp_liste = len(liste)
+    antworten.append(liste[2:temp_liste - 2])
+    antworten.append(antwort)
+    pos = Quiz.objects.get(pk=7)
+    return render(request, 'quiz/green3.html', {'pos':pos, 'antworten':antworten})
+
+def green4(request, liste, antwort):
+    antworten = []
+    antwort1, antwort2 = liste.split(',')
+    antworten.append(antwort1[2:len(antwort1)-1])
+    antworten.append(antwort2[2:len(antwort2)-2])
+    antworten.append(antwort)
+    pos = Quiz.objects.get(pk=8)
+    return render(request, 'quiz/green4.html', {'pos':pos, 'antworten':antworten})
+
+def summary2(request, liste, antwort):
+    antworten = []
+    antworten_richtig = []
+    summary = {}
+
+    antwort1, antwort2, antwort3 = liste.split(',')
+    antworten.append(antwort1[2:len(antwort1)-1])
+    antworten.append(antwort2[2:len(antwort2)-1])
+    antworten.append(antwort3[2:len(antwort3)-2])
+    antworten.append(antwort)
+
+    pos1 = Quiz.objects.get(pk=5)
+    antworten_richtig.append(pos1.richtig)
+    pos2 = Quiz.objects.get(pk=6)
+    antworten_richtig.append(pos2.richtig)
+    pos3 = Quiz.objects.get(pk=7)
+    antworten_richtig.append(pos3.richtig)
+    pos4 = Quiz.objects.get(pk=8)
+    antworten_richtig.append(pos4.richtig)
+
+    for i in range(4):
+        if antworten[i] == antworten_richtig[i]:
+            summary[antworten[i]] = "Richtig"
+        else:
+            summary[antworten[i]] = "Falsch"
+
+    return render(request, 'quiz/summary2.html', {'antworten':antworten, 'summary':summary})
+
 def schwarzfehler1(request):
     return render(request, 'quiz/schwarzfehler1.html')
 
