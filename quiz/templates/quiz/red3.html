@@ -1,5 +1,6 @@
 
 <!doctype html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -50,71 +51,78 @@
 
 <main>
   <br>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="bg-dark text-white text-center overflow-hidden">
           <div class="my-2 py-2">
-            <h2 class="text-white">Das ist die erste Frage</h2>
+            <h2 class="text-white">{{ pos.frage }}</h2>
           </div>
         </div>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <a class="btn" href="#">
-          <div class="bg-light text-dark overflow-hidden">
-            <div class="my-1 py-1 mx-4 px-4">
-              <h3 class="text-dark">Antwort 1</h3>
+      <div class="col-md-12 text-center">
+        <a class="btn" href="{% url 'red4' antworten pos.antwort1 %}">
+          <div class="bg-light text-dark">
+            <div class="my-1 py-1">
+              <h3 class="text-dark">{{ pos.antwort1 }}</h3>
             </div>
           </div>
         </a>
       </div>
-      <div class="col-md-4"></div>
     </div>
     <br>
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <a class="btn" href="#">
+      <div class="col-md-12 text-center">
+        <a class="btn" href="{% url 'red4' antworten pos.antwort2 %}">
           <div class="bg-light text-dark overflow-hidden">
-            <div class="my-1 py-1 mx-4 px-4">
-              <h3 class="text-dark">Antwort 2</h3>
+            <div class="my-1 py-1">
+              <h3 class="text-dark">{{ pos.antwort2 }}</h3>
             </div>
           </div>
         </a>
       </div>
-      <div class="col-md-4"></div>
     </div>
     <br>
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <a class="btn" href="#">
-          <div class="bg-light text-dark overflow-hidden">
-            <div class="my-1 py-1 mx-4 px-4">
-              <h3 class="text-dark">Antwort 3</h3>
+      <div class="col-md-12 text-center">
+        <a class="btn btn-lg btn-block" href="{% url 'red4' antworten pos.antwort3 %}">
+          <div class="bg-light text-dark">
+            <div class="my-1 py-1">
+              <h3 class="text-dark">{{ pos.antwort3 }}</h3>
             </div>
           </div>
         </a>
       </div>
-      <div class="col-md-4"></div>
     </div>
     <br>
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <a class="btn" href="#">
+      <div class="col-md-12 text-center">
+        <a class="btn" href="{% url 'red4' antworten pos.antwort4 %}">
           <div class="bg-light text-dark overflow-hidden">
-            <div class="my-1 py-1 mx-4 px-4">
-              <h3 class="text-dark">Antwort 4</h3>
+            <div class="my-1 py-1">
+              <h3 class="text-dark">{{ pos.antwort4 }}</h3>
             </div>
           </div>
         </a>
       </div>
-      <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      {% for keys in antworten %}
+      <div class="col-md-12 text-center">
+        <a class="btn" href="{% url 'red3' %}">
+          <div class="bg-light text-dark overflow-hidden">
+            <div class="my-1 py-1">
+              <h3 class="text-dark">
+                  {{ keys }}
+              </h3>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
     </div>
     <br>
   </div>
