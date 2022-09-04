@@ -4,6 +4,9 @@ from .models import Quiz
 def home(request):
     return render(request, 'quiz/home.html')
 
+def lock(request):
+    return render(request, 'quiz/lock.html')
+
 def red(request):
     pos = Quiz.objects.get(pk=1)
     return render(request, 'quiz/red.html', {'pos':pos})

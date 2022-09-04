@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 import quiz.views
 
 urlpatterns = [
-    path('', quiz.views.home, name='home'),
+    path('home/', quiz.views.home, name='home'),
+    path('', quiz.views.lock, name='lock'),
     path('red/', quiz.views.red, name='red'),
     path('red2/<str:antwort>', quiz.views.red2, name='red2'),
     path('red3/', quiz.views.red3, name='red3'),
