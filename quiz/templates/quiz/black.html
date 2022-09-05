@@ -64,7 +64,7 @@
     <br>
     <div class="row">
       <div class="col-md-12 text-center">
-        <a class="btn" href="{% url 'black2' pos.antwort1 %}">
+        <a class="btn" href="{% url 'summary3' pos.antwort1 pos.richtig %}">
           <div class="bg-light text-dark">
             <div class="my-1 py-1">
               <h3 class="text-dark">{{ pos.antwort1 }}</h3>
@@ -76,7 +76,7 @@
     <br>
     <div class="row">
       <div class="col-md-12 text-center">
-        <a class="btn" href="{% url 'black2' pos.antwort2 %}">
+        <a class="btn" href="{% url 'summary3' pos.antwort2 pos.richtig %}">
           <div class="bg-light text-dark overflow-hidden">
             <div class="my-1 py-1">
               <h3 class="text-dark">{{ pos.antwort2 }}</h3>
@@ -88,7 +88,7 @@
     <br>
     <div class="row">
       <div class="col-md-12 text-center">
-        <a class="btn btn-lg btn-block" href="{% url 'black2' pos.antwort3 %}">
+        <a class="btn btn-lg btn-block" href="{% url 'summary3' pos.antwort3 pos.richtig %}">
           <div class="bg-light text-dark">
             <div class="my-1 py-1">
               <h3 class="text-dark">{{ pos.antwort3 }}</h3>
@@ -100,7 +100,7 @@
     <br>
     <div class="row">
       <div class="col-md-12 text-center">
-        <a class="btn" href="{% url 'black2' pos.antwort4 %}">
+        <a class="btn" href="{% url 'summary3' pos.antwort4 pos.richtig %}">
           <div class="bg-light text-dark overflow-hidden">
             <div class="my-1 py-1">
               <h3 class="text-dark">{{ pos.antwort4 }}</h3>

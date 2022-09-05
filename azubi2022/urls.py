@@ -44,6 +44,6 @@ urlpatterns = [
     path('black4/<str:liste>/<str:antwort>', quiz.views.black4, name='black4'),
     path('black5/', quiz.views.black5, name='black5'),
     path('black5/<str:liste>/<str:antwort>', quiz.views.black5, name='black5'),
-    path('summary3/<str:liste>/<str:antwort>', quiz.views.summary3, name='summary3'),
+    path('summary3/<str:antwort>/<str:richtig>', quiz.views.summary3, name='summary3'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

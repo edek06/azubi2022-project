@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Quiz
+from random import shuffle
 
 def home(request):
     return render(request, 'quiz/home.html')
@@ -118,7 +119,9 @@ def summary2(request, liste, antwort):
     return render(request, 'quiz/summary2.html', {'antworten':antworten, 'summary':summary})
 
 def black(request):
-    pos = Quiz.objects.get(pk=9)
+    liste = list(range(9,19))
+    shuffle(liste)
+    pos = Quiz.objects.get(pk=liste[0])
     return render(request, 'quiz/black.html', {'pos':pos})
 
 def black2(request, antwort):
@@ -154,11 +157,17 @@ def black5(request, liste, antwort):
     pos = Quiz.objects.get(pk=13)
     return render(request, 'quiz/black5.html', {'pos':pos, 'antworten':antworten})
 
-def summary3(request, liste, antwort):
-    antworten = []
-    antworten_richtig = []
+def summary3(request, antwort, richtig):
+    answer = antwort
     summary = {}
 
+    if antwort == richtig:
+        summary[answer] = "Richtig"
+    else:
+        summary[answer] = "Falsch"
+
+    return render(request, 'quiz/summary3.html', {'summary': summary})
+"""
     antwort1, antwort2, antwort3, antwort4 = liste.split(',')
     antworten.append(antwort1[2:len(antwort1)-1])
     antworten.append(antwort2[2:len(antwort2)-1])
@@ -182,5 +191,5 @@ def summary3(request, liste, antwort):
             summary[antworten[i]] = "Richtig"
         else:
             summary[antworten[i]] = "Falsch"
+"""
 
-    return render(request, 'quiz/summary3.html', {'antworten':antworten, 'summary':summary})
