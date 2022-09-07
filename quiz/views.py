@@ -119,7 +119,7 @@ def summary2(request, liste, antwort):
     return render(request, 'quiz/summary2.html', {'antworten':antworten, 'summary':summary})
 
 def black(request):
-    liste = list(range(9,19))
+    liste = list(range(9,18))
     shuffle(liste)
     pos = Quiz.objects.get(pk=liste[0])
     return render(request, 'quiz/black.html', {'pos':pos})
